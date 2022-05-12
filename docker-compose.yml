@@ -1,0 +1,28 @@
+version: "3"
+services:
+  app:
+    build: .
+    depends_on:
+      - db
+    volumes:
+      - ./:/go/src/app
+    ports:
+      - 9000:9000
+    environment:
+      MYSQL_DATABASE: db_golang
+      MYSQL_HOST: dockerMySQL  #add to!!
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: password 
+
+  db:
+    image: mysql:5.7
+    container_name: dockerMySQL  #add to!!
+    volumes:
+      - ./storage/mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: db_golang
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password 
