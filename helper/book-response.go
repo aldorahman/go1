@@ -1,6 +1,6 @@
 package helper
 
-import "belajar-API/entity"
+import "github.com/aldorahman/go1/entity"
 
 type BookResponse struct {
 	Id          int    `json:"id"`

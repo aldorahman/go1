@@ -1,9 +1,9 @@
 package service
 
 import (
-	"belajar-API/dto"
-	"belajar-API/entity"
-	"belajar-API/repository"
+	"github.com/aldorahman/go1/dto"
+	"github.com/aldorahman/go1/entity"
+	"github.com/aldorahman/go1/repository"
 )
 
 type Service interface {

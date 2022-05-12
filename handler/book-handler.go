@@ -8,9 +8,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 
-	"belajar-API/dto"
-	"belajar-API/helper"
-	"belajar-API/service"
+	"github.com/aldorahman/go1/dto"
+	"github.com/aldorahman/go1/helper"
+	"github.com/aldorahman/go1/service"
 )
 
 type bookHandler struct {

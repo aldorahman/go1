@@ -2,11 +2,11 @@ package main
 
 import (
 	// "belajar-API/book"
-	"belajar-API/config"
-	"belajar-API/entity"
-	"belajar-API/handler"
-	"belajar-API/repository"
-	"belajar-API/service"
+	"github.com/aldorahman/go1/config"
+	"github.com/aldorahman/go1/entity"
+	"github.com/aldorahman/go1/handler"
+	"github.com/aldorahman/go1/repository"
+	"github.com/aldorahman/go1/service"
 
 	// "fmt"
 	// "log"

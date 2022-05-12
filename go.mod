@@ -1,4 +1,4 @@
-module belajar-API
+module github.com/aldorahman/go1
 
 go 1.18
 
