@@ -1,38 +1,25 @@
-name: Test
+name: Go
 
 on:
   push:
-    branches:
-    - main
-    - features/**
-    - dependabot/**
+    branches: [ main ]
   pull_request:
-    branches:
-    - main
+    branches: [ main ]
 
 jobs:
-  docker:
-    timeout-minutes: 10
+
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
+    - uses: actions/checkout@v3
 
-    - name: Start containers
-      run: docker-compose -f "docker-compose.yml" up -d --build
-
-    - name: Install node
-      uses: actions/setup-node@v1
+    - name: Set up Go
+      uses: actions/setup-go@v3
       with:
-        node-version: 14.x
+        go-version: 1.18
 
-    - name: Install dependencies
-      run: npm install
+    - name: Build
+      run: go build -v ./...
 
-    - name: Run tests
-      run: npm run test
-
-    - name: Stop containers
-      if: always()
-      run: docker-compose -f "docker-compose.yml" down
+    - name: Test
+      run: go test -v ./...
