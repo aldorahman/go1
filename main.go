@@ -32,6 +32,7 @@ func main() {
 	// db.AutoMigrate(&entity.Book{})
 
 	router := gin.Default()
+	router.SetTrustedProxies([]string{"192.168.1.2"})
 
 	router.GET("/", bookHandler.RootHandler)
 	bookRoutes := router.Group("/api/v1/book")

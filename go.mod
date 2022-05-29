@@ -1,6 +1,6 @@
 module github.com/aldorahman/go1
 
-
+// +heroku goVersion go1.18
 go 1.18
 
 require gorm.io/driver/mysql v1.3.3
