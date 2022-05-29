@@ -31,7 +31,7 @@ func SetupDatabaseConnection() *gorm.DB {
 	db_url := os.Getenv("DATABASE_URL")
 
 	// dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", db_user, db_pass, db_host, db_name)
-	dsn := fmt.Sprintf("%ssslmode=disable", db_url)
+	dsn := fmt.Sprintf("%s?charset=utf8mb4&parseTime=True&loc=Local", db_url)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		fmt.Println("db error connection")
