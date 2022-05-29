@@ -1,11 +1,13 @@
-FROM golang:1.17-alpine as builder
-WORKDIR /belajar-API
+FROM golang:1.18-alpine as builder
+WORKDIR /app
 COPY . .
 RUN go build -o main
 
-# FROM alpine:3.13
-# WORKDIR /belajar-API
-# COPY --from=builder /belajar-API .
+
+# # #
+FROM golang:1.18-alpine
+WORKDIR /app
+COPY --from=builder /app .
 
 EXPOSE 9000
 
