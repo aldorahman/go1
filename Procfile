@@ -1,1 +1,1 @@
-web: go
+web: go1
