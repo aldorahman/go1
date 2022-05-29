@@ -2,6 +2,8 @@ package main
 
 import (
 	// "belajar-API/book"
+	"os"
+
 	"github.com/aldorahman/go1/config"
 	"github.com/aldorahman/go1/entity"
 	"github.com/aldorahman/go1/handler"
@@ -24,6 +26,8 @@ var (
 )
 
 func main() {
+	port := os.Getenv("PORT")
+
 	defer config.CloseConnectionDatabase(db)
 
 	db.AutoMigrate(&entity.Book{})
@@ -42,7 +46,7 @@ func main() {
 		bookRoutes.POST("/", bookHandler.PostBookHandler)
 	}
 
-	router.Run(":9000")
+	router.Run(":" + port)
 }
 
 // db.AutoMigrate(&book.Book{})
