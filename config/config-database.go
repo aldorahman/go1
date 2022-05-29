@@ -33,7 +33,6 @@ func SetupDatabaseConnection() *gorm.DB {
 	db_url := os.Getenv("DATABASE_URL")
 
 	// dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s TimeZone=Asia/Shanghai", db_host, db_user, db_pass, db_name, db_port)
-	// dsn := fmt.Sprintf("%s", db_url)
 	db, err := gorm.Open(postgres.Open(db_url), &gorm.Config{})
 	if err != nil {
 		fmt.Println("db error connection")
