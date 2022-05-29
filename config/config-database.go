@@ -7,21 +7,23 @@ import (
 	// "log"
 
 	// "github.com/joho/godotenv"
+	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 // setup config database
 func SetupDatabaseConnection() *gorm.DB {
-	// err := godotenv.Load()
-	// if err != nil {
-	// 	panic("failed to load file")
-	// }
+	err := godotenv.Load()
+	if err != nil {
+		panic("failed to load file")
+	}
 
-	// db_user := os.Getenv("MYSQL_USER")
-	// db_pass := os.Getenv("MYSQL_PASSWORD")
-	// db_host := os.Getenv("MYSQL_HOST")
-	// db_name := os.Getenv("MYSQL_DATABASE")
+	// db_host := os.Getenv("DB_HOST")
+	// db_user := os.Getenv("DB_USER")
+	// db_pass := os.Getenv("DB_PASSWORD")
+	// db_name := os.Getenv("DB_DATABASE")
+	// db_port := os.Getenv("DB_PORT")
 
 	// db_user := "root"
 	// db_pass := ""
@@ -30,9 +32,9 @@ func SetupDatabaseConnection() *gorm.DB {
 
 	db_url := os.Getenv("DATABASE_URL")
 
-	// dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", db_user, db_pass, db_host, db_name)
-	dsn := fmt.Sprintf("%s?charset=utf8mb4&parseTime=True&loc=Local", db_url)
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	// dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s TimeZone=Asia/Shanghai", db_host, db_user, db_pass, db_name, db_port)
+	// dsn := fmt.Sprintf("%s", db_url)
+	db, err := gorm.Open(postgres.Open(db_url), &gorm.Config{})
 	if err != nil {
 		fmt.Println("db error connection")
 	}

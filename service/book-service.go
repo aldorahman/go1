@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/aldorahman/go1/dto"
-	"github.com/aldorahman/go1/entity"
-	"github.com/aldorahman/go1/repository"
+	"go1/dto"
+	"go1/entity"
+	"go1/repository"
 )
 
 type Service interface {

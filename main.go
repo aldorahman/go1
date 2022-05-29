@@ -4,11 +4,11 @@ import (
 	// "belajar-API/book"
 	"os"
 
-	"github.com/aldorahman/go1/config"
-	"github.com/aldorahman/go1/entity"
-	"github.com/aldorahman/go1/handler"
-	"github.com/aldorahman/go1/repository"
-	"github.com/aldorahman/go1/service"
+	"go1/config"
+	"go1/entity"
+	"go1/handler"
+	"go1/repository"
+	"go1/service"
 
 	// "fmt"
 	// "log"

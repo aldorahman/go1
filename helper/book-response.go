@@ -1,6 +1,6 @@
 package helper
 
-import "github.com/aldorahman/go1/entity"
+import "go1/entity"
 
 type BookResponse struct {
 	Id          int    `json:"id"`
