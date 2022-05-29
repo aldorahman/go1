@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"github.com/aldorahman/go1/config"
-	"github.com/aldorahman/go1/entity"
 	"github.com/aldorahman/go1/handler"
 	"github.com/aldorahman/go1/repository"
 	"github.com/aldorahman/go1/service"
@@ -28,9 +27,9 @@ var (
 func main() {
 	port := os.Getenv("PORT")
 
-	defer config.CloseConnectionDatabase(db)
+	// defer config.CloseConnectionDatabase(db)
 
-	db.AutoMigrate(&entity.Book{})
+	// db.AutoMigrate(&entity.Book{})
 
 	router := gin.Default()
 
