@@ -7,17 +7,16 @@ import (
 	// "log"
 
 	// "github.com/joho/godotenv"
-	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 // setup config database
 func SetupDatabaseConnection() *gorm.DB {
-	err := godotenv.Load()
-	if err != nil {
-		panic("failed to load file")
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	panic("failed to load file")
+	// }
 
 	// db_host := os.Getenv("DB_HOST")
 	// db_user := os.Getenv("DB_USER")
