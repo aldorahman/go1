@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  golang-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    # restart: always
+    depends_on:
+      - postgres-service
+    volumes:
+      - ./:/go/src/app
+    ports:
+      - "9020:9020"
+    environment:
+      - PORT=9020
+      - DB_HOST=127.0.0.1
+      - DB_USER=postgres
+      - DB_DATABASE=db_go1
+      - DB_PASSWORD=secret
+      - DB_SSLMODE=disable
+      - DB_PORT=6041
+
+  postgres-service:
+    image: 'postgres:14.0'
+    ports:
+      - "6041:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=db_go1
+      - POSTGRES_PASSWORD=secret
+    volumes:
+      - ./db/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
