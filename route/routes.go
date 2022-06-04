@@ -31,6 +31,7 @@ var (
 )
 
 func Routes(r *gin.Engine) {
+
 	authRoutes := r.Group("api/auth")
 	{
 		authRoutes.POST("/login", authController.Login)

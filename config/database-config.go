@@ -6,8 +6,6 @@ import (
 
 	// "os"
 
-	"go1/entity"
-
 	// "gorm.io/driver/postgres"
 
 	"github.com/joho/godotenv"
@@ -35,7 +33,7 @@ func SetupDatabaseConnection() *gorm.DB {
 		fmt.Println("Failed to create a connection to database")
 	}
 	//nanti kita isi modelnya di sini
-	db.AutoMigrate(&entity.User{}, &entity.Color{}, &entity.Todo{})
+	// db.AutoMigrate(&entity.User{}, &entity.Color{}, &entity.Todo{})
 	return db
 }
 
