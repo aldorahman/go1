@@ -21,7 +21,6 @@ host: golang-bn.herokuapp.com
 basePath: /api
 securityDefinitions: {}
 schemes:
-- http
 - https
 consumes:
 - application/json
