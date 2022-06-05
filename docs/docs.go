@@ -12,7 +12,8 @@ import (
 	"github.com/swaggo/swag"
 )
 
-var doc = `swagger: '2.0'
+var doc = `
+swagger: '2.0'
 info:
   version: '1.0'
   title: go1
@@ -21,28 +22,28 @@ host: golang-bn.herokuapp.com
 basePath: /api
 securityDefinitions: {}
 schemes:
-- https
+  - https
 consumes:
-- application/json
+  - application/json
 produces:
-- application/json
+  - application/json
 paths:
   /auth/login:
     post:
       summary: login
       tags:
-      - auth
+        - auth
       operationId: login
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/loginrequest'
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/loginrequest'
       responses:
         '200':
           description: ''
@@ -51,18 +52,18 @@ paths:
     post:
       summary: register
       tags:
-      - auth
+        - auth
       operationId: register
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/registerrequest'
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/registerrequest'
       responses:
         '200':
           description: ''
@@ -71,17 +72,17 @@ paths:
     get:
       summary: detail user
       tags:
-      - user
+        - user
       operationId: detailuser
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
       responses:
         '200':
           description: ''
@@ -90,23 +91,23 @@ paths:
     put:
       summary: edit user
       tags:
-      - user
+        - user
       operationId: edituser
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/edituserrequest'
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/edituserrequest'
       responses:
         '200':
           description: ''
@@ -116,17 +117,17 @@ paths:
     get:
       summary: list todo
       tags:
-      - todo
+        - todo
       operationId: listtodo
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
       responses:
         '200':
           description: ''
@@ -135,54 +136,80 @@ paths:
     post:
       summary: create todo
       tags:
-      - todo
+        - todo
       operationId: createtodo
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/createtodorequest'
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/createtodorequest'
       responses:
         '200':
           description: ''
           headers: {}
       security: []
   /todo/{id}:
+    get:
+      summary: detail todo
+      tags:
+        - todo
+      operationId: detailtodo
+      deprecated: false
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      security: []
     put:
       summary: edit todo
       tags:
-      - todo
+        - todo
       operationId: edittodo
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: id
-        in: path
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/edittodorequest'
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/edittodorequest'
       responses:
         '200':
           description: ''
@@ -191,28 +218,28 @@ paths:
     delete:
       summary: delete todo
       tags:
-      - todo
+        - todo
       operationId: deletetodo
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: id
-        in: path
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/deletetodorequest'
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/deletetodorequest'
       responses:
         '200':
           description: ''
@@ -222,17 +249,17 @@ paths:
     get:
       summary: list color
       tags:
-      - color
+        - color
       operationId: listcolor
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
       responses:
         '200':
           description: ''
@@ -241,23 +268,23 @@ paths:
     post:
       summary: create color
       tags:
-      - color
+        - color
       operationId: createcolor
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/createcolorrequest'
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/createcolorrequest'
       responses:
         '200':
           description: ''
@@ -267,22 +294,22 @@ paths:
     get:
       summary: detail color
       tags:
-      - color
+        - color
       operationId: detailcolor
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: id
-        in: path
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
       responses:
         '200':
           description: ''
@@ -291,28 +318,28 @@ paths:
     put:
       summary: edit color
       tags:
-      - color
+        - color
       operationId: editcolor
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: id
-        in: path
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/editcolorrequest'
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
+        - name: Body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/editcolorrequest'
       responses:
         '200':
           description: ''
@@ -321,22 +348,22 @@ paths:
     delete:
       summary: delete color
       tags:
-      - color
+        - color
       operationId: deletecolor
       deprecated: false
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: id
-        in: path
-        required: true
-        type: string
-        description: ''
-      - name: Authorization
-        in: header
-        required: true
-        type: string
-        description: ''
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: ''
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+          description: ''
       responses:
         '200':
           description: ''
@@ -355,8 +382,8 @@ definitions:
       password:
         type: string
     required:
-    - email
-    - password
+      - email
+      - password
   registerrequest:
     title: registerrequest
     example:
@@ -372,9 +399,9 @@ definitions:
       password:
         type: string
     required:
-    - name
-    - email
-    - password
+      - name
+      - email
+      - password
   edituserrequest:
     title: edituserrequest
     example:
@@ -395,16 +422,16 @@ definitions:
         type: integer
         format: int32
     required:
-    - id
-    - title
-    - description
-    - userId
+      - id
+      - title
+      - description
+      - userId
   createtodorequest:
     title: createtodorequest
     example:
       title: macam2
       isi: pemangsa tempat
-      reminder: 2022-06-04T06:18:30Z
+      reminder: '2022-06-04T06:18:30Z'
       colorId: 6
     type: object
     properties:
@@ -418,17 +445,19 @@ definitions:
         type: integer
         format: int32
     required:
-    - title
-    - isi
-    - reminder
-    - colorId
+      - title
+      - isi
+      - reminder
+      - colorId
   edittodorequest:
     title: edittodorequest
     example:
       title: macam2
       isi: pemangsa tempat
-      reminder: 2022-06-04T06:18:30Z
-      colorId: 6
+      reminder:
+        Time: '2022-06-04T06:18:30Z'
+        Valid: true
+      colorId: 2
     type: object
     properties:
       title:
@@ -436,15 +465,29 @@ definitions:
       isi:
         type: string
       reminder:
-        type: string
+        $ref: '#/definitions/Reminder'
       colorId:
         type: integer
         format: int32
     required:
-    - title
-    - isi
-    - reminder
-    - colorId
+      - title
+      - isi
+      - reminder
+      - colorId
+  Reminder:
+    title: Reminder
+    example:
+      Time: '2022-06-04T06:18:30Z'
+      Valid: true
+    type: object
+    properties:
+      Time:
+        type: string
+      Valid:
+        type: boolean
+    required:
+      - Time
+      - Valid
   deletetodorequest:
     title: deletetodorequest
     example:
@@ -461,9 +504,9 @@ definitions:
         type: integer
         format: int32
     required:
-    - title
-    - isi
-    - colorId
+      - title
+      - isi
+      - colorId
   createcolorrequest:
     title: createcolorrequest
     example:
@@ -476,8 +519,8 @@ definitions:
       color_name:
         type: string
     required:
-    - color_type
-    - color_name
+      - color_type
+      - color_name
   editcolorrequest:
     title: editcolorrequest
     example:
@@ -490,13 +533,13 @@ definitions:
       color_name:
         type: string
     required:
-    - color_type
-    - color_name
+      - color_type
+      - color_name
 tags:
-- name: auth
-- name: user
-- name: todo
-- name: color
+  - name: auth
+  - name: user
+  - name: todo
+  - name: color
 `
 
 type swaggerInfo struct {
