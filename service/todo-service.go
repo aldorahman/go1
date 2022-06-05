@@ -45,8 +45,7 @@ func (service *todoService) Update(todoID int, t dto.TodoDTO) entity.Todo {
 	if err != nil {
 		log.Fatalf("Failed map %v: ", err)
 	}
-	todo.ID = todoID
-	res := service.todoRepository.UpdateTodo(todo)
+	res := service.todoRepository.UpdateTodo(todoID, todo)
 	return res
 }
 

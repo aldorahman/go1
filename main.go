@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
@@ -18,6 +19,11 @@ func main() {
 	defer config.CloseDatabaseConnection(db)
 
 	r := gin.Default()
+	// same as
+	// config := cors.DefaultConfig()
+	// config.AllowAllOrigins = true
+	// router.Use(cors.New(config))
+	r.Use(cors.Default())
 
 	r.Use(gin.Logger())
 	r.LoadHTMLGlob("static/*.html")

@@ -11,7 +11,7 @@ type TodoRepository interface {
 	FindTodoByID(todoID int) entity.Todo
 	DeleteTodo(t entity.Todo)
 	InsertTodo(t entity.Todo) entity.Todo
-	UpdateTodo(t entity.Todo) entity.Todo
+	UpdateTodo(todoID int, t entity.Todo) entity.Todo
 }
 
 type todoConnection struct {
@@ -30,10 +30,10 @@ func (db *todoConnection) InsertTodo(t entity.Todo) entity.Todo {
 	return t
 }
 
-func (db *todoConnection) UpdateTodo(t entity.Todo) entity.Todo {
-	db.connection.Debug().Save(&t)
-
-	db.connection.Preload("User").Preload("Color").Find(&t, t.ID)
+func (db *todoConnection) UpdateTodo(todoID int, t entity.Todo) entity.Todo {
+	t.ID = todoID
+	db.connection.Save(&t)
+	db.connection.Preload("User").Preload("Color").Find(&t, todoID)
 	return t
 }
 

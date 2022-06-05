@@ -1,7 +1,12 @@
 package route
 
 import (
+	_ "go1/docs"
+
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+
 	"gorm.io/gorm"
 
 	"go1/config"
@@ -31,6 +36,7 @@ var (
 )
 
 func Routes(r *gin.Engine) {
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	authRoutes := r.Group("api/auth")
 	{
