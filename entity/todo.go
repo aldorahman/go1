@@ -17,9 +17,9 @@ type Todo struct {
 	CreatedAt time.Time      `gorm:"autoCreateTime; <-:create" json:"createdAt"`
 	UpdatedAt *time.Time     `gorm:"autoUpdateTime; <-:update" json:"updatedAt"`
 	DeletedAt gorm.DeletedAt `gorm:"index" json:"deleteAt"`
-	ColorID   int            `gorm:"index" json:"colorId"`
+	ColorID   int            `gorm:"index" json:"-"`
 	Color     Color          `gorm:"foreignkey:ColorID;constraint:onUpdate:CASCADE,onDelete:CASCADE" json:"color"`
-	UserID    int            `gorm:"not null" json:"userId"`
+	UserID    int            `gorm:"not null" json:"-"`
 	User      User           `gorm:"foreignkey:UserID;constraint:onUpdate:CASCADE,onDelete:CASCADE" json:"user"`
 }
 

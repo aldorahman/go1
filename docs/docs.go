@@ -227,7 +227,8 @@ paths:
         - name: id
           in: path
           required: true
-          type: string
+          type: integer
+          format: int32
           description: ''
         - name: Authorization
           in: header
@@ -303,7 +304,8 @@ paths:
         - name: id
           in: path
           required: true
-          type: string
+          type: integer
+          format: int32
           description: ''
         - name: Authorization
           in: header
@@ -327,7 +329,8 @@ paths:
         - name: id
           in: path
           required: true
-          type: string
+          type: integer
+          format: int32
           description: ''
         - name: Authorization
           in: header
@@ -357,7 +360,8 @@ paths:
         - name: id
           in: path
           required: true
-          type: string
+          type: integer
+          format: int32
           description: ''
         - name: Authorization
           in: header
@@ -405,27 +409,21 @@ definitions:
   edituserrequest:
     title: edituserrequest
     example:
-      id: 4
-      title: Edit Penerjun lembah 2
-      description: petualangan nyali
-      userId: 2
+      name: admin
+      email: admin@gmail.com
+      password: admin
     type: object
     properties:
-      id:
-        type: integer
-        format: int32
-      title:
+      name:
         type: string
-      description:
+      email:
         type: string
-      userId:
-        type: integer
-        format: int32
+      password:
+        type: string
     required:
-      - id
-      - title
-      - description
-      - userId
+      - name
+      - email
+      - password
   createtodorequest:
     title: createtodorequest
     example:
